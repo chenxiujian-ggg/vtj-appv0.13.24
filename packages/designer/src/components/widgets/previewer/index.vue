@@ -1,0 +1,59 @@
+<template>
+  <div ref="container" class="v-previewer" :key="key">
+    <Viewport
+      :mode="mode"
+      :width="width"
+      :height="height"
+      :customSize="customSize">
+      <iframe v-if="src" ref="iframe" frameborder="0" :src="src"></iframe>
+    </Viewport>
+  </div>
+</template>
+<script lang="ts" setup>
+  import { ref, computed } from 'vue';
+  import { type BlockModel, type ProjectModel } from '@vtj/core';
+  import { useElementSize } from '@vueuse/core';
+  import { Viewport } from '../../shared';
+  import { useCurrent } from '../../hooks';
+  export interface Props {
+    path?: (block: BlockModel, project: ProjectModel | null) => string;
+  }
+
+  const props = defineProps<Props>();
+
+  const container = ref();
+  const key = ref(Symbol());
+  const { current, engine } = useCurrent();
+  const { width, height } = useElementSize(container);
+
+  const src = computed(() => {
+    if (current.value) {
+      return props.path
+        ? props.path(current.value, engine.project.value)
+        : null;
+    }
+    return null;
+  });
+
+  const mode = computed(() => {
+    const widget = engine.skeleton?.getWidget('Toolbar');
+    return widget?.widgetRef.mode ?? 'pc';
+  });
+
+  const customSize = computed(() => {
+    const widget = engine.skeleton?.getWidget('Toolbar');
+    return widget?.widgetRef.customSize as { width: number; height: number };
+  });
+
+  const refresh = () => {
+    key.value = Symbol();
+  };
+
+  defineOptions({
+    name: 'PreviewerWidget'
+  });
+
+  defineExpose({
+    refresh
+  });
+</script>

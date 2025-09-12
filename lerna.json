@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "version": "independent",
+  "useNx": true,
+  "npmClient": "pnpm",
+  "packages": [
+    "packages/*",
+    "platforms/*",
+    "apps/*",
+    "create-vtj",
+    "dev",
+    "docs"
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["**/*.md"],
+      "message": "build: 📦 release",
+      "conventionalCommits": true,
+      "exec": "npx commitlint --from $LERNA_PACKAGE_NAME"
+    },
+    "version": {
+      "ignoreChanges": ["**/*.md"],
+      "message": "build: 📦 release",
+      "conventionalCommits": true,
+      "exec": "npx commitlint --from $LERNA_PACKAGE_NAME"
+    }
+  }
+}

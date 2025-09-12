@@ -1,0 +1,7 @@
+packages:
+  - 'packages/*'
+  - 'platforms/*'
+  - 'apps/*'
+  - 'create-vtj'
+  - 'dev'
+  - 'docs'

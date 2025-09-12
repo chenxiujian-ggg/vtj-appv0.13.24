@@ -1,0 +1,115 @@
+@use 'core' as *;
+
+@include b(panel) {
+  background-color: var(--el-bg-color);
+  box-sizing: border-box;
+  @include m(default) {
+    @include when(radius) {
+      border-radius: getCssVar('border-radius-base');
+    }
+
+    @include e(header) {
+      padding: 0;
+      border-radius: getCssVar('border-radius-base');
+    }
+    @include when(border) {
+      & > {
+        @include e(body) {
+          border: 1px solid getCssVar('border-color-light');
+        }
+      }
+    }
+
+    @include when(radius) {
+      & > {
+        @include e(body) {
+          border-radius: getCssVar('border-radius-base');
+        }
+      }
+    }
+
+    @include when(shadow-always) {
+      & > {
+        @include e(body) {
+          box-shadow: getCssVar('box-shadow-lighter');
+        }
+      }
+    }
+
+    @include when(shadow-hover) {
+      & > {
+        @include e(body) {
+          &:hover {
+            box-shadow: getCssVar('box-shadow-lighter');
+          }
+        }
+      }
+    }
+  }
+
+  @include m(card) {
+    @include when(border) {
+      border: 1px solid getCssVar('border-color-light');
+    }
+
+    @include when(radius) {
+      border-radius: getCssVar('border-radius-base');
+    }
+
+    @include when(shadow-always) {
+      box-shadow: getCssVar('box-shadow-lighter');
+    }
+
+    @include when(shadow-hover) {
+      &:hover {
+        box-shadow: getCssVar('box-shadow-lighter');
+      }
+    }
+    & > {
+      @include e(header) {
+        padding: 0 5px 0 10px;
+        background-color: getCssVar('fill-color-lighter');
+      }
+    }
+  }
+
+  @include e(body) {
+    @include when(grow) {
+      @include when(overflow-auto) {
+        height: 1px;
+      }
+    }
+  }
+
+  @include e(badge-wrapper) {
+    position: relative;
+    overflow: hidden;
+    .x-panel__body {
+      padding-right: 30px !important;
+    }
+    .is-badge-success {
+      background-color: var(--el-color-success);
+    }
+    .is-badge-primary {
+      background-color: var(--el-color-primary);
+    }
+    .is-badge-warning {
+      background-color: var(--el-color-warning);
+    }
+    .is-badge-danger {
+      background-color: var(--el-color-danger);
+    }
+  }
+  @include e(badge) {
+    position: absolute;
+    font-size: 12px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 74px;
+    color: rgb(255, 255, 255);
+    transform: rotate(45deg);
+    right: -20px;
+    top: 6px;
+  }
+}

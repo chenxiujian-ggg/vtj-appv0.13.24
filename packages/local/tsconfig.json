@@ -1,0 +1,12 @@
+{
+  "extends": "../cli/config/tsconfig.node.json",
+  "compilerOptions": {
+    "resolveJsonModule": true
+  },
+  "include": ["src"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

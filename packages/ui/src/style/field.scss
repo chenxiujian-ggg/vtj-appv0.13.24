@@ -1,0 +1,89 @@
+@use 'core' as *;
+
+@include b(field) {
+  .el-form-item__label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @include e(info) {
+    position: absolute !important;
+    right: 0;
+    cursor: pointer;
+  }
+  @include e(trigger) {
+    --color: getCssVar('color-error') !important;
+    color: getCssVar('color-error') !important;
+  }
+
+  @include e(editor) {
+    width: 100% !important;
+  }
+
+  @include e(editor_wrap) {
+    flex-grow: 1;
+    line-height: 1;
+    width: 100%;
+    @include when('inline') {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      @include e(editor) {
+        width: auto !important;
+      }
+      @include e(tip) {
+        width: auto !important;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  @include e(tip) {
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    color: getCssVar('text-color-secondary');
+    padding: 5px 0;
+  }
+
+  @include when('tooltip-outer') {
+    &.el-form-item--small {
+      .el-form-item__content {
+        padding-right: 16px;
+        line-height: 1;
+      }
+    }
+
+    &.el-form-item--default {
+      .el-form-item__content {
+        padding-right: 20px;
+        line-height: 1;
+      }
+    }
+
+    &.el-form-item--large {
+      .el-form-item__content {
+        padding-right: 24px;
+        line-height: 1;
+      }
+    }
+  }
+
+  @include when('tooltip-inner') {
+    &.el-form-item--small {
+      .x-field__info {
+        right: 5px;
+      }
+    }
+    &.el-form-item--default {
+      .x-field__info {
+        right: 8px;
+      }
+    }
+    &.el-form-item--large {
+      .x-field__info {
+        right: 10px;
+      }
+    }
+  }
+}

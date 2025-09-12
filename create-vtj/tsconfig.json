@@ -1,0 +1,14 @@
+{
+  "extends": "../packages/cli/config/tsconfig.web.json",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "templates/**/*",
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

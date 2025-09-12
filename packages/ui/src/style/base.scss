@@ -1,0 +1,40 @@
+@use 'core' as *;
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: getCssVar('font-family');
+  background-color: getCssVar('bg-color');
+  font-family: 'Microsoft YaHei', Arial, sans-serif;
+  &.user-select-none {
+    user-select: none;
+    overflow: hidden !important;
+
+    iframe {
+      pointer-events: none;
+    }
+  }
+}
+body,
+div {
+  @include scroll-bar;
+}
+
+body.is-dragging,
+body.is-resizing {
+  user-select: none;
+  iframe {
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.el-tag + .el-tag {
+  margin-left: 5px;
+}
+
+.el-loading-mask {
+  background-color: var(--el-mask-color-extra-light) !important;
+}

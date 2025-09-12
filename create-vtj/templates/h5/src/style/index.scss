@@ -1,0 +1,15 @@
+@use '@vtj/h5/src/index.scss';
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#app {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  height: 100%;
+}
+.van-config-provider {
+  height: 100%;
+}

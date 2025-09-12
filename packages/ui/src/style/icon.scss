@@ -1,0 +1,52 @@
+@use 'core' as *;
+
+@include b(icon) {
+  line-height: 1;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  color: var(--color);
+  box-sizing: content-box;
+  > svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  @include when(hover-effect) {
+    transition: all 0.2s;
+    &:hover{
+      background-color: var(--color);
+      color: white;
+    }
+
+  }
+
+  @include when(pointer) {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    filter: invert(0.1);
+  }
+
+  & + .x-icon {
+    margin-left: 10px;
+  }
+}
+
+html.dark {
+  @include b(icon) {
+    img {
+      filter: invert(0.9);
+    }
+  }
+}

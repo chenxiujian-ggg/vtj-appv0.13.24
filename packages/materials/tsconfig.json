@@ -1,0 +1,10 @@
+{
+  "extends": "../cli/config/tsconfig.web.json",
+  "include": ["src"],
+  "exclude": ["src/uni-ui"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}

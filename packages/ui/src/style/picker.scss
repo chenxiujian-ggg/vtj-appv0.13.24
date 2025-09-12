@@ -1,0 +1,45 @@
+@use 'core' as *;
+
+@include b(picker) {
+  .el-select__popper {
+    display: none !important;
+  }
+  .el-select__suffix {
+    .vtj-icon-check {
+      display: none;
+    }
+  }
+  .el-select__prefix {
+    .x-picker__tigger {
+      background: var(--el-fill-color);
+      border-radius: 4px;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+      > svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    .el-select__icon {
+      font-size: 14px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+  &.el-select--small {
+    .x-picker__tigger {
+      width: 18px;
+      height: 18px;
+      font-size: 12px;
+    }
+  }
+}

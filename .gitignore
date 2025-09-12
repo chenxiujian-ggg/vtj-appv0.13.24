@@ -1,0 +1,80 @@
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+vite.config.ts.timestamp-*
+
+node_modules/
+dist
+dist-ssr
+lib
+*.local
+.nx
+.husky/_
+package-lock.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.history
+.hbuildx
+.vtj
+
+# packages
+/packages/*/temp/
+/packages/*/types/
+/packages/*/dist/
+/packages/*/coverage/
+/packages/*/node_modules/
+/packages/*/tsconfig.tsbuildinfo
+/packages/icons/src/components
+
+# apps
+/apps/*/temp/
+/apps/*/types/
+/apps/*/dist/
+/apps/*/coverage/
+/apps/*/node_modules/
+/apps/*/public/extension
+
+# dev
+/dev/public/@vtj
+/dev/public/extension
+/dev/vxe-table-pro
+
+# docs
+/docs/src/typedoc
+/docs/.vitepress/cache
+/docs/cache
+/docs/dist
+
+# pro
+/platforms/pro/public/@vtj
+/platforms/pro/public/extension
+/platforms/pro/src/.vtj
+/platforms/pro/src/pages/*
+/platforms/pro/src/App.vue
+/platforms/pro/src/pages.json
+/platforms/pro/src/manifest.json
+
+# uniapp
+/apps/uniapp/src/.vtj
+
+/scripts/ssh.mjs
+/pnpm-publish-summary.json
+
+# materials
+!/packages/materials/src/uni-ui/lib

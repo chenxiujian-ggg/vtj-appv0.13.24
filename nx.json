@@ -1,0 +1,21 @@
+{
+  "targetDefaults": {
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+    },
+    "coverage": {
+      "dependsOn": ["^coverage"],
+      "outputs": ["{projectRoot}/coverage"]
+    }
+  },
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": ["default"]
+  }
+}

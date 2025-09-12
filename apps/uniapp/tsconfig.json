@@ -1,0 +1,22 @@
+{
+  "extends": "../../packages/cli/config/tsconfig.web.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "lib": ["esnext"],
+    "types": ["node", "@dcloudio/types"]
+  },
+  "include": [
+    "shims-uni.d.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  "exclude": [".vtj/**/*"],
+  "vueCompilerOptions": {
+    "nativeTags": ["component", "template", "slot"]
+  }
+}

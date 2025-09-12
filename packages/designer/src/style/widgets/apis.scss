@@ -1,0 +1,37 @@
+.v-apis__search {
+  margin-bottom: 10px;
+}
+
+.v-apis-widget {
+  .el-collapse {
+    --el-collapse-header-height: 36px !important;
+  }
+  .el-collapse-item:last-child {
+    .el-collapse-item__wrap {
+      border-bottom: none;
+    }
+  }
+  .v-item__tag {
+    width: 50px;
+  }
+}
+
+.v-apis-widget__form {
+  height: 100%;
+
+  .mock-template {
+    height: calc(100% - 100px);
+    .el-form-item__content,
+    .x-field__editor_wrap {
+      height: 100%;
+    }
+  }
+
+  .request-headers {
+    height: calc(100% - 200px);
+    .el-form-item__content,
+    .x-field__editor_wrap {
+      height: 100%;
+    }
+  }
+}

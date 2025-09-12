@@ -1,0 +1,79 @@
+{
+  "name": "@vtj/pro",
+  "private": false,
+  "version": "0.13.24",
+  "keywords": [
+    "低代码引擎",
+    "LowCode Engine",
+    "Vue3低代码",
+    "低代码渲染器",
+    "低代码设计器",
+    "代码生成器",
+    "代码可视化"
+  ],
+  "description": "VTJ 是一款基于 Vue3 + Typescript 的低代码页面可视化设计器。内置低代码引擎、渲染器和代码生成器，面向前端开发者，开箱即用。 无缝嵌入本地开发工程，不改变前端开发流程和编码习惯。",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/newgateway/vtj.git"
+  },
+  "homepage": "https://gitee.com/newgateway/vtj",
+  "author": "chenhuachun",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env ENV_TYPE=local vite",
+    "build": "vue-tsc && cross-env ENV_TYPE=live vite build && npm run build:uni",
+    "build:uni": "cd ../pro-uni && npm run build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vtj/core": "workspace:~",
+    "@vtj/designer": "workspace:~",
+    "@vtj/local": "workspace:~",
+    "@vtj/materials": "workspace:~",
+    "@vtj/renderer": "workspace:~",
+    "@vtj/uni": "workspace:~"
+  },
+  "devDependencies": {
+    "@vtj/charts": "workspace:~",
+    "@vtj/cli": "workspace:~",
+    "@vtj/icons": "workspace:~",
+    "@vtj/ui": "workspace:~",
+    "@vtj/utils": "workspace:~",
+    "vue": "~3.5.5",
+    "vue-router": "~4.5.0"
+  },
+  "exports": {
+    "./vite": {
+      "types": "./src/vite.d.ts",
+      "import": "./src/vite.mjs",
+      "require": "./src/vite.mjs"
+    },
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./src/index.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "gitHead": "d03843144f07c2d98c1e0c72c8c6eb1117c01722",
+  "publishConfig": {
+    "access": "public"
+  },
+  "vtj": {
+    "name": "VTJ.PRO",
+    "platform": "web",
+    "remote": "https://lcdp.vtj.pro",
+    "__ACCESS__": {
+      "auth": "https://lcdp.vtj.pro/login",
+      "storageKey": "RRO_IDE_ACCESS_STORAGE__",
+      "privateKey": "MIIBOgIBAAJBAKoIzmn1FYQ1YOhOBw9EhABxZ+PySAIaydI+zdhoKflrdgJ4A5E4/5gbQmRpk09hPWG8nvX7h+l/QLU8kXxAIBECAwEAAQJAAlgpxQY6sByLsXqzJcthC8LSGsLf2JEJkHwlnpwFqlEV8UCkoINpuZ2Wzl+aftURu5rIfAzRCQBvHmeOTW9/zQIhAO5ufWDmnSLyfAAsNo5JRNpVuLFCFodR8Xm+ulDlosR/AiEAtpAltyP9wmCABKG/v/hrtTr3mcvFNGCjoGa9bUAok28CIHbrVs9w1ijrBlvTsXYwJw46uP539uKRRT4ymZzlm9QjAiB+1KH/G9f9pEEL9rtaSOG7JF5D0JcOjlze4MGVFs+ZrQIhALKOUFBNr2zEsyJIjw2PlvEucdlG77UniszjXTROHSPd"
+    }
+  }
+}

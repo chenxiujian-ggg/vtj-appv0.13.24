@@ -1,0 +1,32 @@
+name: Build → Test → Export vtj.tar
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: vtj:pro
+
+jobs:
+  build-test-export:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 1. 构建镜像
+      - name: Build Docker image
+        run: docker build -t ${{ env.IMAGE_NAME }} .
+
+      # 6. 导出镜像
+      - name: Export image to tar
+        run: docker save ${{ env.IMAGE_NAME }} > vtj.tar
+
+      # 7. 上传工件（提供下载链接）
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vtj-image
+          path: vtj.tar
+          retention-days: 7   # 可调整保留天数

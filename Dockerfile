@@ -17,6 +17,9 @@ COPY . .
 # ---- 安装项目依赖 ----
 RUN npm run setup
 
+# ---- 构建项目依赖 ----
+RUN npm run build
+
 # ---- 构建阶段：预启动 pro:dev，生成缓存后强制退出 ----
 RUN BROWSER=none npm run pro:dev -- --host 0.0.0.0 --port 9527 & \
     pid=$! && \
